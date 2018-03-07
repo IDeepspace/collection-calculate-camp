@@ -1,28 +1,37 @@
 'use strict';
-let single_element = function(collection){
-  let arr = collection.filter((value,index)=>{
-    if(index%2 === 1){
-      return value
-    }
-  });
+var single_element = function (collection) {
+  var array = [];
+  var result = [];
 
-  let obj = {};
-  arr.forEach((item,key)=>{
-    if(!obj[item]){
-      obj[item] = {};
-      obj[item].num = item;
-      obj[item].count = 1;
-    }else {
-      obj[item].count ++;
+  if (collection.length > 6) {
+    for (var i = 0; i < collection.length; i++) {
+      if (collection[2 * i - 1])
+        array.push(collection[2 * i - 1]);
     }
-  });
+    for (var t = 0; t < array.length; t++) {
+      var count = 0;
 
-  let result = [];
-  for(let key in obj){
-    if(obj[key].count === 1){
-      result.push(obj[key].num)
+      for (var j = 0; j < array.length; j++) {
+        if (array[t] === array[j]) {
+          count++;
+        }
+      }
+      if (count !== 2) {
+        result.push(array[t])
+      }
     }
+    return result;
   }
-  return result
+  else
+    for (var i = 0; i < collection.length; i++) {
+      if (collection[2 * i - 1]) {
+        result.push(collection[2 * i - 1])
+      }
+      return array;
+      if (array[i].indexOf(array[i]))
+        result.push(array[i]);
+
+    }
+  return result;
 };
 module.exports = single_element;
